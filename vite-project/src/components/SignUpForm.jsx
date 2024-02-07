@@ -6,6 +6,7 @@ export default function SignUpForm() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState(null);
+ 
 
   async function handleSubmit(event) {
     event.preventDefault();
@@ -27,16 +28,22 @@ console.log(result)
     <>
       <h2>Sign Up</h2>
       {error && <p>{error}</p>}
+      {/* {successMessage && <p className="success">{successMessage}</p>} */}
       <form onSubmit={handleSubmit}>
         <label>
-          Username:{" "}
+          Username(6 characters):{" "}
+          
           <input
             value={username}
             onChange={(e) => setUsername(e.target.value)}
           />
         </label>
+        {username.length !== 8 &&(
+            <p style={{color: "blue" }}> Username should be a latter not a  Numbers</p>
+        
+        )}
         <label>
-          Password:{" "}
+          Password (8 characters must be one capitle  ):{" "}
           <input
             type="password"
             value={password}
