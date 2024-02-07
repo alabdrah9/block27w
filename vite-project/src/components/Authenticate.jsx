@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { ReactPropTypes } from "prop-types";
+// import { ReactPropTypes } from "prop-types";
 
 
 
@@ -10,7 +10,7 @@ export default function Authenticate({ token }) {
   async function handleClick() {
     try {
       const response = await fetch(
-        "https://fsa-jwt-practice.herokuapp.com/signup",
+        "https://fsa-jwt-practice.herokuapp.com/authenticate",
         {
           method: "GET",
           headers: {
@@ -27,7 +27,7 @@ export default function Authenticate({ token }) {
   }
 
   return (
-    <div>
+    <div className="success">
       <h2>Authenticate</h2>
       {successMessage && <p>{successMessage}</p>}
       {error && <p>{error}</p>}
